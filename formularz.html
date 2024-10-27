@@ -6,7 +6,10 @@
    <meta name="viewport"; content="width=device-width, initial-scale=1.0">
  </head>
 
-<body align="center"; style="background-color: black">
+<body style="background-color: black">
+ <table align="center"; width="50%"; style="background-color: grey">
+  <tr>
+   <td>
   <label for="name"; style="color: white"> Imię: </label>
   <input type="text"; id="name"; name="name"><br>
 
@@ -16,8 +19,8 @@
   <label for="secondname"; style="color: white"> Drugie imię: </label>
   <input type="text"; id="secondname"; name="secondname"><br>
 
-  <label for="birthdate"; type="date"; style="color: white"> Data urodzenia: </label>
-  <input type="text"; id="birthdate"; name="birthdate"><br>
+  <label for="birthdate"; style="color: white"> Data urodzenia: </label>
+  <input type="date"; min="1900-01-01"; max="2024-12-31"; id="birthdate"; name="birthdate"><br>
 
   <label for="country"; style="color: white"> Kraj: </label>
   <input type="text"; id="country"; name="country"><br>
