@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f3f3f3;
+    }
+    .calculator {
+      width: 250px;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: grey;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .display {
+      width: 91%;
+      padding: 10px;
+      font-size: 24px;
+      text-align: right;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #f9f9f9;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    button {
+      padding: 15px;
+      font-size: 18px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button.operation {
+      background-color: black;
+      color: #ffffff;
+    }
+    button.clear {
+      background-color: #f44336;
+      color: #ffffff;
+    }
+    button.equal {
+      background-color: #9ba19d;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+<div class="calculator">
+  <p align="center"><font size="5"> Casio </font></p>
+  <input type="text" class="display" id="display" disabled>
+  <div class="buttons">
+  	<button class="operation" onclick="memoryRecall('MR')">MR</button>
+    <button class="operation" onclick="memoryPlus('M+')">M+</button>
+    <button class="operation" onclick="memoryMinus('M-')">M-</button>
+    <button class="operation" onclick="appendToCalculation('/')">/</button>
+  	
+    <button onclick="appendToCalculation('7')">7</button>
+    <button onclick="appendToCalculation('8')">8</button>
+    <button onclick="appendToCalculation('9')">9</button>
+    <button class="operation" onclick="appendToCalculation('*')">*</button>
+
+    <button onclick="appendToCalculation('4')">4</button>
+    <button onclick="appendToCalculation('5')">5</button>
+    <button onclick="appendToCalculation('6')">6</button>
+    <button class="operation" onclick="appendToCalculation('-')">-</button>
+
+    <button onclick="appendToCalculation('1')">1</button>
+    <button onclick="appendToCalculation('2')">2</button>
+    <button onclick="appendToCalculation('3')">3</button>
+    <button class="operation" onclick="appendToCalculation('+')">+</button>
+
+    <button class="clear" onclick="clearDisplay()">C</button>
+    <button onclick="appendToCalculation('0')">0</button>
+    <button onclick="appendToCalculation('.')">.</button>
+    <button class="equal" onclick="calculateResult()">=</button>
+    
+  </div>
+</div>
+
+<script>
+  let display = document.getElementById('display');
+  let calculation = '';
+  let lastFunctionMR = false;
+
+  function appendToCalculation(value) {
+    calculation += value;
+    updateDisplay();
+    lastFunctionMR = false;
+  }
+
+  function updateDisplay() {
+    display.value = calculation;
+  }
+
+  function calculateResult() {
+    try {
+      calculation = eval(calculation).toString();
+      updateDisplay();
+    } catch (error) {
+      display.value = 'Błąd!';
+      calculation = '';
+      lastFunctionMR = false;
+    }
+  }
+  
+  let memory = 0;
+  
+  function memoryPlus(){
+  memory += eval(calculation);
+  lastFunctionMR = false;
+  }
+  
+  function memoryMinus(){
+  memory -= eval(calculation);
+  lastFunctionMR = false;
+  }
+  
+  function memoryRecall(){
+  if(lastFunctionMR === true) memory = null;
+  calculation = eval(memory).toString();
+  lastFunctionMR = true;
+  updateDisplay();
+  }
+
+  function clearDisplay() {
+    calculation = '';
+    lastFunctionMR = false;
+    updateDisplay();
+  }
+</script>
+
+</body>
+</html>
