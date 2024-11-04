@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,9 +60,9 @@
 <body>
 
 <div class="calculator">
-  <p align="center"><font size="5"> Casio </font></p>
+  <p align="center"><font size="5"> Kalkulator </font></p>
   <input type="text" class="display" id="display" disabled>
-  <div class="buttons">
+   <div class="buttons">
   	<button class="operation" onclick="memoryRecall('MR')">MR</button>
     <button class="operation" onclick="memoryPlus('M+')">M+</button>
     <button class="operation" onclick="memoryMinus('M-')">M-</button>
@@ -88,7 +88,7 @@
     <button onclick="appendToCalculation('.')">.</button>
     <button class="equal" onclick="calculateResult()">=</button>
     
-  </div>
+   </div>
 </div>
 
 <script>
@@ -141,7 +141,7 @@
     lastFunctionMR = false;
     updateDisplay();
   }
-</script>
+  </script>
 
-</body>
+ </body>
 </html>
