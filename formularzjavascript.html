@@ -112,7 +112,7 @@
   const passwordInput = document.getElementById('password');
   const passwordError = docuemnt.getElementById('passwordError');
 
-    if(!nameRegex.test(name.value)) 
+    if(!nameRegex.test(nameInput.value)) 
     {
       nameInput.classList.add('error');
       nameInput.classList.remove('success');
@@ -125,7 +125,7 @@
       nameError.textContent = ""; 
     }
 
-    if(!secondnameRegex.test(secondname.value)) 
+    if(!secondnameRegex.test(secondnameInput.value)) 
     {
       secondnameInput.classList.add('error');
       secondnameInput.classList.remove('success');
@@ -138,7 +138,7 @@
       secondnameError.textContent = ""; 
     }
 
-    if(!surnameRegex.test(surname.value)) 
+    if(!surnameRegex.test(surnameInput.value)) 
     {
       surnameInput.classList.add('error');
       surnameInput.classList.remove('success');
@@ -177,7 +177,7 @@
       sexError.textContent = ""; 
     }
 
-   if(!countryRegex.test(country.value)) 
+   if(!countryRegex.test(countryInput.value)) 
     {
       countryInput.classList.add('error');
       countryInput.classList.remove('success');
@@ -190,7 +190,7 @@
       countryError.textContent = ""; 
     }
 
-    if(!cityRegex.test(city.value)) 
+    if(!cityRegex.test(cityInput.value)) 
     {
       cityInput.classList.add('error');
       cityInput.classList.remove('success');
@@ -203,7 +203,7 @@
       cityError.textContent = ""; 
     }
 
-    if(!streetRegex.test(street.value)) 
+    if(!streetRegex.test(streetInput.value)) 
     {
       streetInput.classList.add('error');
       streetInput.classList.remove('success');
@@ -216,7 +216,7 @@
       streetError.textContent = ""; 
     }
 
-   if(!phoneRegex.test(phone.value)) 
+   if(!phoneRegex.test(phoneInput.value)) 
     {
       phoneInput.classList.add('error');
       phoneInput.classList.remove('success');
@@ -242,7 +242,7 @@
       licenseError.textContent = ""; 
     }
 
-   if(!passwordRegex.test(password.value)) 
+   if(!passwordRegex.test(passwordInput.value)) 
     {
       passwordInput.classList.add('error');
       passwordInput.classList.remove('success');
