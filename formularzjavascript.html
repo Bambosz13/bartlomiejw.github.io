@@ -75,6 +75,8 @@
 
   <label for="repeatpassword"><font size="5"> Powtórz hasło: </font></label><br>
   <input type="text"; id="repeatpassword"; name="repeatpassword"><br>
+
+  <button class="operation" onclick="SaveData"> Zapisz dane </button>
 </body>
 
 <script>
@@ -91,25 +93,29 @@
   const password = document.getElementById('password');
   const repeatpassword = document.getElementById('repeatpassword');
 
-  const errorname = document.getElementById('errorname');
+  const isValid = true;
 
-  let nameformat = true;
-
-  errorname.style.display = 'none';
-
-  function NameFormat()
-  {
    for(let i = 0; i < name.length; i++)
     {
-     if(name[i] >= 'a' && name[i] <= 'z') nameformat = true;
-     else (name[i] >= 'A' && name[i] <= 'Z') nameformat = true;
+     if(name[i] >= 'a' && name[i] <= 'z') isValid = true;
+     else isValid = false;
+     if(name[i] >= 'A' && name[i] <= 'Z') isValid = true;
+     else isValid = false;
+
+   for(let i = 0; i < surname.length; i++)
+    {
+     if(surname[i] >= 'a' && surname[i] <= 'z') isValid = true;
+     else isValid = false;
+     if(surname[i] >= 'A' && surname[i] <= 'Z') isValid = true;
+     else isValid = false;
     }
-   if(nameformat == false)
+ 
+
+  function SaveData()
    {
-    errorname.style.display = 'text';
+    if(isValid) location.reload();
+    else window.alert("Formularz został niepoprawnie wypełniony");
    }
-  }
-    
      
       
 </script>
