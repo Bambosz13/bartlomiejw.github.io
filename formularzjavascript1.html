@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Walidacja</title>
+  <style>
+    .error {
+      border: 2px solid red;
+    }
+    .success {
+      border: 2px solid green;
+    }
+  </style>
+</head>
+<body>
+  <form id="form">
+    <label for="name">Imię:</label>
+    <input type="text" id="name" placeholder="Wpisz imię">
+    <span id="nameError" style="color: red; font-size: 0.9em;"></span>
+    <br><br>
+    <button type="submit">Zatwierdź</button>
+  </form>
+
+  <script>
+    const nameRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}$/;
+
+    document.getElementById('form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Zapobiega wysłaniu formularza
+
+      const nameInput = document.getElementById('name');
+      const nameError = document.getElementById('nameError');
+
+      // Sprawdź, czy imię pasuje do regex
+      if (!nameRegex.test(nameInput.value)) {
+        nameInput.classList.add('error'); // Dodaj klasę błędu
+        nameInput.classList.remove('success'); // Usuń klasę sukcesu (jeśli była)
+        nameError.textContent = "Niepoprawne imię!";
+      } else {
+        nameInput.classList.remove('error'); // Usuń klasę błędu
+        nameInput.classList.add('success'); // Dodaj klasę sukcesu
+        nameError.textContent = ""; // Usuń komunikat o błędzie
+      }
+    });
+  </script>
+</body>
+</html>
