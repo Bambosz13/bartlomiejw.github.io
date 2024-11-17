@@ -150,7 +150,7 @@
     if(dateInput != null) {
       dateInput.classList.add('error');
       dateInput.classList.remove('success');
-      dateError.textContent = "Niepoprawny format imienia";
+      dateError.textContent = "Brak wskazanej daty";
     } else {
       dateInput.classList.remove('error'); 
       dateInput.classList.add('success'); 
@@ -160,7 +160,7 @@
     if(sexInput != null) {
       sexInput.classList.add('error');
       sexInput.classList.remove('success');
-      sexError.textContent = "Niepoprawny format imienia";
+      sexError.textContent = "Brak wskazanej płci";
     } else {
       sexInput.classList.remove('error'); 
       sexInput.classList.add('success'); 
@@ -170,7 +170,7 @@
     if(!countryRegex.test(countryInput.value)) {
       countryInput.classList.add('error');
       countryInput.classList.remove('success');
-      countryError.textContent = "Niepoprawny format imienia";
+      countryError.textContent = "Niepoprawny format nazwy kraju";
     } else {
       countryInput.classList.remove('error'); 
       countryInput.classList.add('success'); 
@@ -180,7 +180,7 @@
     if(!cityRegex.test(cityInput.value)) {
       cityInput.classList.add('error');
       cityInput.classList.remove('success');
-      cityError.textContent = "Niepoprawny format imienia";
+      cityError.textContent = "Niepoprawny format nazwy miasta";
     } else {
       cityInput.classList.remove('error'); 
       cityInput.classList.add('success'); 
@@ -190,7 +190,7 @@
     if(!streetRegex.test(streetInput.value)) {
       streetInput.classList.add('error');
       streetInput.classList.remove('success');
-      streetError.textContent = "Niepoprawny format imienia";
+      streetError.textContent = "Niepoprawny format nazwy ulicy";
     } else {
       streetInput.classList.remove('error'); 
       streetInput.classList.add('success'); 
@@ -200,7 +200,7 @@
     if(!phoneRegex.test(phoneInput.value)) {
       phoneInput.classList.add('error');
       phoneInput.classList.remove('success');
-      phoneError.textContent = "Niepoprawny format imienia";
+      phoneError.textContent = "Niepoprawny format numeru telefonu";
     } else {
       phoneInput.classList.remove('error'); 
       phoneInput.classList.add('success'); 
@@ -210,7 +210,7 @@
     if(licenseInput != null) {
       licenseInput.classList.add('error');
       licenseInput.classList.remove('success');
-      licenseError.textContent = "Niepoprawny format imienia";
+      licenseError.textContent = "Brak wskazanego wyboru";
     } else {
       licenseInput.classList.remove('error'); 
       licenseInput.classList.add('success'); 
@@ -220,7 +220,7 @@
     if(!passwordRegex.test(passwordInput.value)) {
       passwordInput.classList.add('error');
       passwordInput.classList.remove('success');
-      passwordError.textContent = "Niepoprawny format imienia";
+      passwordError.textContent = "Niepoprawny format hasła";
     } else {
       passwordInput.classList.remove('error'); 
       passwordInput.classList.add('success'); 
