@@ -103,6 +103,14 @@
  
   const isValid = true;
 
+  console.log("Test imienia:", nameRegex.test("Bartłomiej")); // Spodziewane: true
+  console.log("Test nazwiska:", surnameRegex.test("Wykrota")); // Spodziewane: true
+  console.log("Test kraju:", nameRegex.test("Polska")); // Spodziewane: true
+  console.log("Test miasta:", streetRegex.test("Warszawa")); // Spodziewane: true
+  console.log("Test ulicy:", nameRegex.test("Wąwozowa 18")); // Spodziewane: true
+  console.log("Test numeru:", streetRegex.test("+48 698 390 802")); // Spodziewane: true
+  console.log("Test hasła:", nameRegex.test("Nigga13141516")); // Spodziewane: true
+
   function SaveData() 
   {
     if(!nameRegex.test(name.value)) 
