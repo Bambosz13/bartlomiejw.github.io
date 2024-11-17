@@ -5,23 +5,28 @@
    <meta charset="UTF-8">
    <meta name="viewport"; content="width=device-width, initial-scale=1.0">
    <style>
-    .error {
+   
+    .error 
+    {
       border: 2px solid red;
     }
-    .success {
+    .success 
+    {
       border: 2px solid green;
     }
+    
   </style>
  </head>
 
-<body style="background-color: black">
- <form style="background-color: grey" align="center" id="form">
+<body>
+ <form align="center" id="form">
+  <h1 align="center"> Formularz </h1>
   
   <input type="text"; id="name"; placeholder="Imię "><br>
   <span id="nameError" style="color: red; font-size: 0.9em;"></span>
   <br><br>
 
-  <input type="text"; id="secondname"; placeholder="Drugie imie (opcjonalnie)"><br>
+  <input type="text"; id="secondname"; placeholder="Drugie imię (opcjonalnie)"><br>
   <span id="secondnameError" style="color: red; font-size: 0.9em;"></span>
   <br><br>
 
@@ -30,12 +35,12 @@
   <br><br>
 
   <label for="date"> Data urodzenia: </font></label><br>
-  <input type="date"; min="1900-01-01"; max="2024-12-31"; id="date"; name="birthdate"><br>
+  <input type="date"; min="1900-01-01"; max="2024-12-31"; id="date"; placeholder="Data urodzenia"><br>
   <span id="dateError" style="color: red; font-size: 0.9em;"></span>
   <br><br>
   
   <label for="sex"> Płeć: </label>
-    <select id="sex"; name="sex">
+    <select id="sex"; placeholder="Płeć">
         <option value="none"> - </option>
         <option value="yes"> Mężczyzna </option>
         <option value="no"> Kobieta </option>
@@ -59,8 +64,8 @@
   <span id="phoneError" style="color: red; font-size: 0.9em;"></span>
   <br><br>
 
-  <label for="drivinglicence">Prawo jazdy: </label>
-    <select id="license"; name="drivinglicence">
+  <label for="drivinglicence"> Prawo jazdy: </label>
+    <select id="license"; name="Prawo jazdy">
         <option value="none"> - </option>
         <option value="yes"> Tak </option>
         <option value="no"> Nie </option>
@@ -72,7 +77,7 @@
   <span id="passwordError" style="color: red; font-size: 0.9em;"></span>
   <br><br>
 
-  <button type="SaveData"> Prześlij </button>
+  <button type="submit"> Prześlij </button>
   
  </form>
 
@@ -85,7 +90,7 @@
   const streetRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}( [A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29})*\s\d*$/;
   const phoneRegex = /^\+?\d{9,15}$/;
 
-  document.getElementById('form').addEventListener('SaveData', function(event) 
+  document.getElementById('form').addEventListener('submit', function(event) 
   {
       event.preventDefault();
 
@@ -112,148 +117,116 @@
   const passwordInput = document.getElementById('password');
   const passwordError = docuemnt.getElementById('passwordError');
 
-    if(!nameRegex.test(nameInput.value)) 
-    {
+    if(!nameRegex.test(nameInput.value)) {
       nameInput.classList.add('error');
       nameInput.classList.remove('success');
       nameError.textContent = "Niepoprawny format imienia";
-    }
-    else 
-    {
+    } else {
       nameInput.classList.remove('error'); 
       nameInput.classList.add('success'); 
       nameError.textContent = ""; 
     }
 
-    if(!secondnameRegex.test(secondnameInput.value)) 
-    {
+    if(!secondnameRegex.test(secondnameInput.value)) {
       secondnameInput.classList.add('error');
       secondnameInput.classList.remove('success');
-      secondnameError.textContent = "Niepoprawny format imienia";
-    }
-    else 
-    {
+      secondnameError.textContent = "Niepoprawny format drugiego imienia";
+    } else {
       secondnameInput.classList.remove('error'); 
       secondnameInput.classList.add('success'); 
       secondnameError.textContent = ""; 
     }
 
-    if(!surnameRegex.test(surnameInput.value)) 
-    {
+    if(!surnameRegex.test(surnameInput.value)) {
       surnameInput.classList.add('error');
       surnameInput.classList.remove('success');
-      surnameError.textContent = "Niepoprawny format imienia";
-    }
-    else 
-    {
+      surnameError.textContent = "Niepoprawny format nazwiska";
+    } else {
       surnameInput.classList.remove('error'); 
       surnameInput.classList.add('success'); 
       surnameError.textContent = ""; 
     }
 
-   if(dateInput != null) 
-    {
+    if(dateInput != null) {
       dateInput.classList.add('error');
       dateInput.classList.remove('success');
       dateError.textContent = "Niepoprawny format imienia";
-    }
-    else 
-    {
+    } else {
       dateInput.classList.remove('error'); 
       dateInput.classList.add('success'); 
       dateError.textContent = ""; 
     }
 
-   if(sexInput != null) 
-    {
+    if(sexInput != null) {
       sexInput.classList.add('error');
       sexInput.classList.remove('success');
       sexError.textContent = "Niepoprawny format imienia";
-    }
-    else 
-    {
+    } else {
       sexInput.classList.remove('error'); 
       sexInput.classList.add('success'); 
       sexError.textContent = ""; 
     }
 
-   if(!countryRegex.test(countryInput.value)) 
-    {
+    if(!countryRegex.test(countryInput.value)) {
       countryInput.classList.add('error');
       countryInput.classList.remove('success');
       countryError.textContent = "Niepoprawny format imienia";
-    }
-    else 
-    {
+    } else {
       countryInput.classList.remove('error'); 
       countryInput.classList.add('success'); 
       countryError.textContent = ""; 
     }
 
-    if(!cityRegex.test(cityInput.value)) 
-    {
+    if(!cityRegex.test(cityInput.value)) {
       cityInput.classList.add('error');
       cityInput.classList.remove('success');
       cityError.textContent = "Niepoprawny format imienia";
-    }
-    else 
-    {
+    } else {
       cityInput.classList.remove('error'); 
       cityInput.classList.add('success'); 
       cityError.textContent = ""; 
     }
 
-    if(!streetRegex.test(streetInput.value)) 
-    {
+    if(!streetRegex.test(streetInput.value)) {
       streetInput.classList.add('error');
       streetInput.classList.remove('success');
       streetError.textContent = "Niepoprawny format imienia";
-    }
-    else 
-    {
+    } else {
       streetInput.classList.remove('error'); 
       streetInput.classList.add('success'); 
       streetError.textContent = ""; 
     }
 
-   if(!phoneRegex.test(phoneInput.value)) 
-    {
+    if(!phoneRegex.test(phoneInput.value)) {
       phoneInput.classList.add('error');
       phoneInput.classList.remove('success');
       phoneError.textContent = "Niepoprawny format imienia";
-    }
-    else 
-    {
+    } else {
       phoneInput.classList.remove('error'); 
       phoneInput.classList.add('success'); 
       phoneError.textContent = ""; 
     }
 
-   if(license != null) 
-    {
+    if(licenseInput != null) {
       licenseInput.classList.add('error');
       licenseInput.classList.remove('success');
       licenseError.textContent = "Niepoprawny format imienia";
-    }
-    else 
-    {
+    } else {
       licenseInput.classList.remove('error'); 
       licenseInput.classList.add('success'); 
       licenseError.textContent = ""; 
     }
 
-   if(!passwordRegex.test(passwordInput.value)) 
-    {
+    if(!passwordRegex.test(passwordInput.value)) {
       passwordInput.classList.add('error');
       passwordInput.classList.remove('success');
       passwordError.textContent = "Niepoprawny format imienia";
-    }
-    else 
-    {
+    } else {
       passwordInput.classList.remove('error'); 
       passwordInput.classList.add('success'); 
       passwordError.textContent = ""; 
     }
+    
  });
            
  </script>
