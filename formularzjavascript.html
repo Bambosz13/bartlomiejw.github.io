@@ -101,10 +101,17 @@
 
   function SaveData() 
   {
-    if(!nameRegex.test(name.value)) isValid = false
+    if(!nameRegex.test(name.value)) isValid = false;
    
-    if(isValid == true) window.location.reload(true);
-    else window.alert("Formularz został niepoprawnie wypełniony");
+    if(isValid == true) 
+    {
+     if(confirm("Zatwierdź przesłanie formularza")) window.location.reload(true);
+     else 
+     {
+      alert("Formularz został niepoprawnie wypełniony");
+      window.location.reload(true);
+     }
+    }
   }
      
       
