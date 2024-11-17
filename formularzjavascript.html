@@ -104,14 +104,15 @@
     if(!nameRegex.test(name.value)) isValid = false;
    
     if(isValid == true) 
-    {
+     {
      if(confirm("Zatwierdź przesłanie formularza")) window.location.reload(true);
      else 
+     {
+    else
      {
       alert("Formularz został niepoprawnie wypełniony");
       window.location.reload(true);
      }
-    }
   }
      
       
