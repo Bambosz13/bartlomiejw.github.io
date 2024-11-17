@@ -95,26 +95,61 @@
   const nameRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}$/;
   const surnameRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}$/;
   const secondnameRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}$/;
-  const countryRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}$/;
-  const cityRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}$/;
-  const streetRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}$\d/;
+  const countryRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}( [A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29})*$/;
+  const cityRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}( [A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29})*$/;
+  const streetRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}( [A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29})*\d*$/;
   const phoneRegex = /^\+?\d{9,15}$/;
   const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/;
-  const repeatpasswordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/;
  
   const isValid = true;
 
   function SaveData() 
   {
-    if(!nameRegex.test(name.value)) isValid = false;
-    if(!surnameRegex.test(surname.value)) isValid = false;
-    if(!secondnameRegex.test(secondname.value)) isValid = false;
-    if(!countryRegex.test(country.value)) isValid = false;
-    if(!cityRegex.test(city.value)) isValid = false;
-    if(!streetRegex.test(street.value)) isValid = false;
-    if(!phoneRegex.test(phone.value)) isValid = false;
-    if(!passwordRegex.test(password.value)) isValid = false;
-    if(!repeatpasswordRegex.test(repeatpassword.value)) isValid = false;
+    if(!nameRegex.test(name.value)) 
+    {
+     isValid = false;
+     console.error("Niepoprawne imię");
+    }
+    if(!surnameRegex.test(surname.value)) 
+    {
+     isValid = false;
+     console.error("Niepoprawne nazwisko");
+    }
+    if(!secondnameRegex.test(secondname.value)) 
+    {
+     isValid = false;
+     console.error("Niepoprawne drugie imie");
+    }
+    if(!countryRegex.test(country.value)) 
+    {
+     isValid = false;
+     console.error("Niepoprawny kraj");
+    }
+    if(!cityRegex.test(city.value)) 
+    {
+     isValid = false;
+     console.error("Niepoprawne miasto");
+    }
+    if(!streetRegex.test(street.value)) 
+    {
+     isValid = false;
+     console.error("Niepoprawna ulica");
+    }
+    if(!phoneRegex.test(phone.value)) 
+    {
+     isValid = false;
+     console.error("Niepoprawny numer telefonu");
+    }
+    if(!passwordRegex.test(password.value)) 
+    {
+     isValid = false;
+     console.error("Niepoprawne hasło");
+    }
+    if(!passwordRegex.test(repeatpassword.value)) 
+    {
+     isValid = false;
+     console.error("Niepoprawnie powtórzono hasło");
+    }
 
     if(password != repeatpassword) isValid = false;
    
