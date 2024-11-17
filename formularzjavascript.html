@@ -33,6 +33,7 @@
    <td align="center"; width="50%">
   <label for="name"><font size="5"> Imię: </font></label><br>
   <input type="text"; id="name"; name="name"><br>
+    <p> </p>
 
   <label for="surname"><font size="5"> Nazwisko: </font></label><br>
   <input type="text"; id="surname"; name="surname"><br>
@@ -77,19 +78,32 @@
 </body>
 
 <script>
-  let name = document.getElementById('name')
-  let surname = document.getElementById('surname')
-  let secondname = document.getElementById('secondname')
-  let birthdate = document.getElementById('birthdate')
-  let sex = document.getElementById('sex')
-  let country = document.getElementById('country')
-  let city = document.getElementById('city')
-  let street = document.getElementById('street')
-  let phone = document.getElementById('phone')
-  let drivinglicense = document.getElementById('drivinglicense')
-  let password = document.getElementById('password')
-  let repeatpassword = document.getElementById('repeatpassword')
-  
+  let name = document.getElementById('name');
+  let surname = document.getElementById('surname');
+  let secondname = document.getElementById('secondname');
+  let birthdate = document.getElementById('birthdate');
+  let sex = document.getElementById('sex');
+  let country = document.getElementById('country');
+  let city = document.getElementById('city');
+  let street = document.getElementById('street');
+  let phone = document.getElementById('phone');
+  let drivinglicense = document.getElementById('drivinglicense');
+  let password = document.getElementById('password');
+  let repeatpassword = document.getElementById('repeatpassword');
 
+  let nameformat = false;
+
+  function NameFormat()
+  {
+   for(let i = 0; i < name.length; i++)
+    {
+     if(name[i] >= 'a' && name[i] <= 'z') nameformat = true;
+     else (name[i] >= 'A' && name[i] <= 'Z') nameformat = true;
+    }
+   if(nameformat === false) console.log("Niepoprawny format");
+  }
+    
+     
+      
 </script>
 </html>
