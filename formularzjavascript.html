@@ -1,50 +1,115 @@
 <!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Walidacja</title>
-  <style>
+<html>
+ <head>
+   <title> Formularz </title>
+   <meta charset="UTF-8">
+   <meta name="viewport"; content="width=device-width, initial-scale=1.0">
+   <style>
     .error {
-      border: 2px solid red;
+        border: 2px solid red;
     }
     .success {
       border: 2px solid green;
     }
   </style>
-</head>
-<body>
-  <form id="form">
-    <label for="name">Imię:</label>
-    <input type="text" id="name" placeholder="Wpisz imię">
-    <span id="nameError" style="color: red; font-size: 0.9em;"></span>
-    <br><br>
-    <button type="submit">Zatwierdź</button>
-  </form>
+ </head>
 
-  <script>
-    const nameRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}$/;
+<body style="background-color: black">
+ <table align="center"; width="50%"; style="background-color: grey">
+  <tr>
+   <td width="50%">
+    <p align="center"><font size="5"> Formularz: </font></p>
+   </td>
+  </tr>
+ </table>
+ 
+ <form id="form">
+  
+  <label for="name"><font size="5"> Imię: </font></label>
+  <input type="text"; id="name"; placeholder="Imię: ">
+  <span id="nameError" style="color: red; font-size: 0.9em;"></span>
+  <br><br>
 
-    document.getElementById('form').addEventListener('submit', function(event) {
-      event.preventDefault(); // Zapobiega wysłaniu formularza
+  <label for="surname"><font size="5"> Nazwisko: </font></label><br>
+  <input type="text"; id="surname"; name="surname"><br>
 
-      const nameInput = document.getElementById('name');
-      const nameError = document.getElementById('nameError');
+  <label for="secondname"><font size="5"> Drugie imię: </font></label><br>
+  <input type="text"; id="secondname"; name="secondname"><br>
 
-      // Sprawdź, czy imię pasuje do regex
-      if (!nameRegex.test(nameInput.value)) {
-        nameInput.classList.add('error'); // Dodaj klasę błędu
-        nameInput.classList.remove('success'); // Usuń klasę sukcesu (jeśli była)
-        nameError.textContent = "Niepoprawne imię!";
-      } else {
-        nameInput.classList.remove('error'); // Usuń klasę błędu
-        nameInput.classList.add('success'); // Dodaj klasę sukcesu
-        nameError.textContent = ""; // Usuń komunikat o błędzie
-      }
-    });
-  </script>
-</body>
-</html>
+  <label for="birthdate"><font size="5"> Data urodzenia: </font></label><br>
+  <input type="date"; min="1900-01-01"; max="2024-12-31"; id="birthdate"; name="birthdate"><br>
+
+  <label for="sex"><font size="5"> Płeć: </font></label><br>
+    <select id="sex"; name="sex">
+        <option value="none"> - </option>
+        <option value="yes"> Mężczyzna </option>
+        <option value="no"> Kobieta </option>
+    </select><br>
+
+  <label for="country"><font size="5"> Kraj: </font></label><br>
+  <input type="text"; id="country"; name="country"><br>
+
+  <label for="city"><font size="5"> Miasto: </font></label><br>
+  <input type="text"; id="city"; name="city"><br>
+  
+  <label for="street"><font size="5"> Ulica: </font></label><br>
+  <input type="text"; id="street"; name="street"><br>
+
+  <label for="phone"><font size="5"> Telefon kontaktowy: </font></label><br>
+  <input type="text"; id="phone"; name="phone"><br>
+
+  <label for="drivinglicence"><font size="5"> Prawo jazdy: </font></label><br>
+    <select id="drivinglicence"; name="drivinglicence">
+        <option value="none"> - </option>
+        <option value="yes"> Tak </option>
+        <option value="no"> Nie </option>
+    </select><br>
+
+  <label for="password"><font size="5"> Hasło: </font></label><br>
+  <input type="text"; id="password"; name="password"><br>
+
+  <button type="SaveData"> Zapisz dane </button>
+  
+ </form>
+
+<script>
+  const nameRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}$/;
+  const surnameRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}$/;
+  const secondnameRegex = /([A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29})?/;
+  const countryRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}( [A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29})*$/;
+  const cityRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}( [A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29})*$/;
+  const streetRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}( [A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29})*\s\d*$/;
+  const phoneRegex = /^\+?\d{9,15}$/;
+
+  document.getElementById('form').addEventListener('SaveData', function(event) 
+  {
+      event.preventDefault();
+
+  const name = document.getElementById('name');
+  const surname = document.getElementById('surname');
+  const secondname = document.getElementById('secondname');
+  const birthdate = document.getElementById('birthdate');
+  const sex = document.getElementById('sex');
+  const country = document.getElementById('country');
+  const city = document.getElementById('city');
+  const street = document.getElementById('street');
+  const phone = document.getElementById('phone');
+  const drivinglicense = document.getElementById('drivinglicense');
+  const password = document.getElementById('password');
+
+    if(!nameRegex.test(name.value)) 
+    {
+      nameInput.classList.add('error');
+      nameInput.classList.remove('success');
+      nameError.textContent = "Niepoprawne imię!";
+    }
+    else 
+    {
+      nameInput.classList.remove('error'); 
+      nameInput.classList.add('success'); 
+      nameError.textContent = ""; 
+    }
+ });
            
  </script>
 </body>
