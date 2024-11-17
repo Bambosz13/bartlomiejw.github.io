@@ -36,7 +36,7 @@
  
  <form align="center"; width="50%"; style="background-color: grey" id="form">
   
-  <label for="name"><font size="5"> Imię: </font></label><br>
+  <label for="name"><font size="5"> Imię: </font></label>
   <input type="text"; id="name"; placeholder="Imię: ">
   <span id="nameError" style="color: red; font-size: 0.9em;"></span>
   <br><br>
@@ -109,48 +109,15 @@
   const phone = document.getElementById('phone');
   const drivinglicense = document.getElementById('drivinglicense');
   const password = document.getElementById('password');
- 
-  const isValid = true;
 
     if(!nameRegex.test(name.value)) 
     {
-     isValid = false;
      nameInput.classList.add('error');
      nameInput.classList.remove('success');
      nameError.textContent = "Niepoprawne imię!";
     }
 
  });
-    if(!surnameRegex.test(surname.value)) 
-    {
-     isValid = false;
-     console.error("Niepoprawne nazwisko");
-    }
-    if(!secondnameRegex.test(secondname.value)) 
-    {
-     isValid = false;
-     console.error("Niepoprawne drugie imie");
-    }
-    if(!countryRegex.test(country.value)) 
-    {
-     isValid = false;
-     console.error("Niepoprawny kraj");
-    }
-    if(!cityRegex.test(city.value)) 
-    {
-     isValid = false;
-     console.error("Niepoprawne miasto");
-    }
-    if(!streetRegex.test(street.value)) 
-    {
-     isValid = false;
-     console.error("Niepoprawna ulica");
-    }
-    if(!phoneRegex.test(phone.value)) 
-    {
-     isValid = false;
-     console.error("Niepoprawny numer telefonu");
-    }
            
 </script>
 </html>
