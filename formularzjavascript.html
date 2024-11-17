@@ -72,9 +72,6 @@
   <label for="password"><font size="5"> Hasło: </font></label><br>
   <input type="text"; id="password"; name="password"><br>
 
-  <label for="repeatpassword"><font size="5"> Powtórz hasło: </font></label><br>
-  <input type="text"; id="repeatpassword"; name="repeatpassword"><br>
-
   <button class="operation" onclick="SaveData()"> Zapisz dane </button>
 </body>
 
@@ -90,7 +87,6 @@
   const phone = document.getElementById('phone');
   const drivinglicense = document.getElementById('drivinglicense');
   const password = document.getElementById('password');
-  const repeatpassword = document.getElementById('repeatpassword');
 
   const nameRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}$/;
   const surnameRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}$/;
@@ -107,7 +103,7 @@
   console.log("Test kraju:", countryRegex.test("Polska")); // Spodziewane: true
   console.log("Test miasta:", cityRegex.test("Warszawa")); // Spodziewane: true
   console.log("Test ulicy:", streetRegex.test("Wąwozowa 18")); // Spodziewane: true
-  console.log("Test numeru:", phoneRegex.test("+48 698 390 802")); // Spodziewane: true
+  console.log("Test numeru:", phoneRegex.test("+48698390802")); // Spodziewane: true
 
   function SaveData() 
   {
@@ -146,8 +142,6 @@
      isValid = false;
      console.error("Niepoprawny numer telefonu");
     }
-
-    if(password != repeatpassword) isValid = false;
    
     if(isValid == true)
     {
