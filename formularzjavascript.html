@@ -99,13 +99,10 @@
   const cityRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}$/;
   const streetRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}$\d/;
   const phoneRegex = /^\+?\d{9,15}$/;
-  const passwordRegex = /{8, 30}/;
-  const repeatpasswordRegex = /{8, 30}/;
+  const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/;
+  const repeatpasswordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/;
  
   const isValid = true;
-
-
- 
 
   function SaveData() 
   {
