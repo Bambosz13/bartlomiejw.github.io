@@ -146,16 +146,6 @@
      isValid = false;
      console.error("Niepoprawny numer telefonu");
     }
-    if(!passwordRegex.test(password.value)) 
-    {
-     isValid = false;
-     console.error("Niepoprawne hasło");
-    }
-    if(!passwordRegex.test(repeatpassword.value)) 
-    {
-     isValid = false;
-     console.error("Niepoprawnie powtórzono hasło");
-    }
 
     if(password != repeatpassword) isValid = false;
    
