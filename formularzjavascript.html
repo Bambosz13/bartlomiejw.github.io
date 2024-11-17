@@ -11,10 +11,13 @@
         border: none;
         border-radius: 8px;
         cursor: pointer;
-      }
-      button.operation {
+     }
+    button.operation {
         background-color: black;
         color: #ffffff;
+      }
+    .error {
+        border: 2px solid red;
       }
   </style>
  </head>
@@ -32,7 +35,9 @@
   <tr>
    <td align="center"; width="50%">
   <label for="name"><font size="5"> Imię: </font></label><br>
-  <input type="text"; id="name"; name="name"><br>
+  <input type="text"; id="name"; placeholder="Imię: ">
+  <span id="nameError" style="color: red; font-size: 0.9em;"></span>
+  <br><br>
 
   <label for="surname"><font size="5"> Nazwisko: </font></label><br>
   <input type="text"; id="surname"; name="surname"><br>
@@ -72,7 +77,9 @@
   <label for="password"><font size="5"> Hasło: </font></label><br>
   <input type="text"; id="password"; name="password"><br>
 
+ <div>
   <button class="operation" onclick="SaveData()"> Zapisz dane </button>
+ </div>
 </body>
 
 <script>
@@ -90,7 +97,7 @@
 
   const nameRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}$/;
   const surnameRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}$/;
-  const secondnameRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}$/;
+  const secondnameRegex = /([A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29})?/;
   const countryRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}( [A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29})*$/;
   const cityRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}( [A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29})*$/;
   const streetRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}( [A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29})*\s\d*$/;
@@ -98,19 +105,11 @@
  
   const isValid = true;
 
-  console.log("Test imienia:", nameRegex.test("Bartłomiej")); // Spodziewane: true
-  console.log("Test nazwiska:", surnameRegex.test("Wykrota")); // Spodziewane: true
-  console.log("Test kraju:", countryRegex.test("Polska")); // Spodziewane: true
-  console.log("Test miasta:", cityRegex.test("Warszawa")); // Spodziewane: true
-  console.log("Test ulicy:", streetRegex.test("Wąwozowa 18")); // Spodziewane: true
-  console.log("Test numeru:", phoneRegex.test("+48698390802")); // Spodziewane: true
-
-  function SaveData() 
-  {
     if(!nameRegex.test(name.value)) 
     {
      isValid = false;
-     console.error("Niepoprawne imię");
+     nameInput.classList.add('error');
+     nameError.textContent = "Niepoprawne imię!";
     }
     if(!surnameRegex.test(surname.value)) 
     {
@@ -142,7 +141,9 @@
      isValid = false;
      console.error("Niepoprawny numer telefonu");
     }
-   
+ 
+  function SaveData() 
+  {  
     if(isValid == true)
     {
       if(confirm("Zatwierdź przesłanie formularza")) 
