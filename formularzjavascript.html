@@ -89,6 +89,7 @@
   const cityRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}( [A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29})*$/;
   const streetRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}( [A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29})*\s\d*$/;
   const phoneRegex = /^\+?\d{9,15}$/;
+  const passwordRegex = /^.{8,}$/; 
 
   document.getElementById('form').addEventListener('submit', function(event) 
   {
