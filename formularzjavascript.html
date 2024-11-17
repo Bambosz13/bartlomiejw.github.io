@@ -11,14 +11,17 @@
         border: none;
         border-radius: 8px;
         cursor: pointer;
-     }
+    }
     button.operation {
         background-color: black;
         color: #ffffff;
-      }
+    }
     .error {
         border: 2px solid red;
-      }
+    }
+    .success {
+      border: 2px solid green;
+    }
   </style>
  </head>
 
@@ -31,9 +34,8 @@
   </tr>
  </table>
  
- <table align="center"; width="50%"; style="background-color: grey">
-  <tr>
-   <td align="center"; width="50%">
+ <form align="center"; width="50%"; style="background-color: grey" id="form">
+  
   <label for="name"><font size="5"> Imię: </font></label><br>
   <input type="text"; id="name"; placeholder="Imię: ">
   <span id="nameError" style="color: red; font-size: 0.9em;"></span>
@@ -77,12 +79,25 @@
   <label for="password"><font size="5"> Hasło: </font></label><br>
   <input type="text"; id="password"; name="password"><br>
 
- <div>
   <button class="operation" onclick="SaveData()"> Zapisz dane </button>
- </div>
+  
+ </form>
 </body>
 
 <script>
+  const nameRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}$/;
+  const surnameRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}$/;
+  const secondnameRegex = /([A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29})?/;
+  const countryRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}( [A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29})*$/;
+  const cityRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}( [A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29})*$/;
+  const streetRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}( [A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29})*\s\d*$/;
+  const phoneRegex = /^\+?\d{9,15}$/;
+
+  document.getElementById('form').addEventListener('SaveData', function(event) 
+  {
+      event.preventDefault();
+  }
+
   const name = document.getElementById('name');
   const surname = document.getElementById('surname');
   const secondname = document.getElementById('secondname');
@@ -94,14 +109,6 @@
   const phone = document.getElementById('phone');
   const drivinglicense = document.getElementById('drivinglicense');
   const password = document.getElementById('password');
-
-  const nameRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}$/;
-  const surnameRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}$/;
-  const secondnameRegex = /([A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29})?/;
-  const countryRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}( [A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29})*$/;
-  const cityRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}( [A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29})*$/;
-  const streetRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}( [A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29})*\s\d*$/;
-  const phoneRegex = /^\+?\d{9,15}$/;
  
   const isValid = true;
 
@@ -109,8 +116,11 @@
     {
      isValid = false;
      nameInput.classList.add('error');
+     nameInput.classList.remove('success');
      nameError.textContent = "Niepoprawne imię!";
     }
+
+ });
     if(!surnameRegex.test(surname.value)) 
     {
      isValid = false;
