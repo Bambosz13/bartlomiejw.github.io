@@ -95,6 +95,8 @@
 
   let nameformat = true;
 
+  errorname.style.display = 'none';
+
   function NameFormat()
   {
    for(let i = 0; i < name.length; i++)
@@ -102,9 +104,9 @@
      if(name[i] >= 'a' && name[i] <= 'z') nameformat = true;
      else (name[i] >= 'A' && name[i] <= 'Z') nameformat = true;
     }
-   if(nameformat === false)
+   if(nameformat == false)
    {
-    errorname.style.display = 'block';
+    errorname.style.display = 'text';
    }
   }
     
