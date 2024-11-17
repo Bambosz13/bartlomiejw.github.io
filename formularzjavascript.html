@@ -6,7 +6,7 @@
    <meta name="viewport"; content="width=device-width, initial-scale=1.0">
    <style>
     .error {
-        border: 2px solid red;
+      border: 2px solid red;
     }
     .success {
       border: 2px solid green;
@@ -17,50 +17,62 @@
 <body style="background-color: black">
  <form style="background-color: grey" align="center" id="form">
   
-  <label for="name"><font size="5"> Imię: </font></label>
-  <input type="text"; id="name"; placeholder="Imię: ">
+  <input type="text"; id="name"; placeholder="Imię "><br>
   <span id="nameError" style="color: red; font-size: 0.9em;"></span>
   <br><br>
 
-  <label for="surname"><font size="5"> Nazwisko: </font></label><br>
-  <input type="text"; id="surname"; name="surname"><br>
+  <input type="text"; id="secondname"; placeholder="Drugie imie (opcjonalnie)"><br>
+  <span id="secondnameError" style="color: red; font-size: 0.9em;"></span>
+  <br><br>
 
-  <label for="secondname"><font size="5"> Drugie imię: </font></label><br>
-  <input type="text"; id="secondname"; name="secondname"><br>
+  <input type="text"; id="surname"; placeholder="Nazwisko"><br>
+  <span id="surnameError" style="color: red; font-size: 0.9em;"></span>
+  <br><br>
 
-  <label for="birthdate"><font size="5"> Data urodzenia: </font></label><br>
-  <input type="date"; min="1900-01-01"; max="2024-12-31"; id="birthdate"; name="birthdate"><br>
-
-  <label for="sex"><font size="5"> Płeć: </font></label><br>
+  <label for="date"> Data urodzenia: </font></label><br>
+  <input type="date"; min="1900-01-01"; max="2024-12-31"; id="date"; name="birthdate"><br>
+  <span id="dateError" style="color: red; font-size: 0.9em;"></span>
+  <br><br>
+  
+  <label for="sex"> Płeć: </label>
     <select id="sex"; name="sex">
         <option value="none"> - </option>
         <option value="yes"> Mężczyzna </option>
         <option value="no"> Kobieta </option>
     </select><br>
+  <span id="sexError" style="color: red; font-size: 0.9em;"></span>
+  <br><br>
 
-  <label for="country"><font size="5"> Kraj: </font></label><br>
-  <input type="text"; id="country"; name="country"><br>
+  <input type="text"; id="country"; placeholder="Kraj"><br>
+  <span id="countryError" style="color: red; font-size: 0.9em;"></span>
+  <br><br>
 
-  <label for="city"><font size="5"> Miasto: </font></label><br>
-  <input type="text"; id="city"; name="city"><br>
+  <input type="text"; id="city"; placeholder="Miasto"><br>
+  <span id="cityError" style="color: red; font-size: 0.9em;"></span>
+  <br><br>
   
-  <label for="street"><font size="5"> Ulica: </font></label><br>
-  <input type="text"; id="street"; name="street"><br>
+  <input type="text"; id="street"; placeholder="Ulica"><br>
+  <span id="streetError" style="color: red; font-size: 0.9em;"></span>
+  <br><br>
 
-  <label for="phone"><font size="5"> Telefon kontaktowy: </font></label><br>
-  <input type="text"; id="phone"; name="phone"><br>
+  <input type="text"; id="phone"; placeholder="Telefon"><br>
+  <span id="phoneError" style="color: red; font-size: 0.9em;"></span>
+  <br><br>
 
-  <label for="drivinglicence"><font size="5"> Prawo jazdy: </font></label><br>
-    <select id="drivinglicence"; name="drivinglicence">
+  <label for="drivinglicence">Prawo jazdy: </label>
+    <select id="license"; name="drivinglicence">
         <option value="none"> - </option>
         <option value="yes"> Tak </option>
         <option value="no"> Nie </option>
     </select><br>
+  <span id="licenseError" style="color: red; font-size: 0.9em;"></span>
+  <br><br>
 
-  <label for="password"><font size="5"> Hasło: </font></label><br>
-  <input type="text"; id="password"; name="password"><br>
+  <input type="text"; id="password"; placeholder="Hasło"><br>
+  <span id="passwordError" style="color: red; font-size: 0.9em;"></span>
+  <br><br>
 
-  <button type="SaveData"> Zapisz dane </button>
+  <button type="SaveData"> Prześlij </button>
   
  </form>
 
@@ -77,29 +89,170 @@
   {
       event.preventDefault();
 
-  const name = document.getElementById('name');
-  const surname = document.getElementById('surname');
-  const secondname = document.getElementById('secondname');
-  const birthdate = document.getElementById('birthdate');
-  const sex = document.getElementById('sex');
-  const country = document.getElementById('country');
-  const city = document.getElementById('city');
-  const street = document.getElementById('street');
-  const phone = document.getElementById('phone');
-  const drivinglicense = document.getElementById('drivinglicense');
-  const password = document.getElementById('password');
+  const nameInput = document.getElementById('name');
+  const nameError = document.getElementById('nameError');
+  const surnameInput = document.getElementById('surname');
+  const surnameError = document.getElementById('surnameError');
+  const secondnameInput = document.getElementById('secondname');
+  const secondnameError = document.getElementById('secondnameError');
+  const dateInput = document.getElementById('date');
+  const dateError = document.getElementById('dateError');
+  const sexInput = document.getElementById('sex');
+  const sexError = document.getElementById('sexError');
+  const countryInput = document.getElementById('country');
+  const countryError = document.getElementById('countrError');
+  const cityInput = document.getElementById('city');
+  const cityError = document.getElementById('cityError');
+  const streetInput = document.getElementById('street');
+  const streetError = document.getElementById('streetError');
+  const phoneInput = document.getElementById('phone');
+  const phoneError = document.getElementById('phoneError');
+  const licenseInput = document.getElementById('license');
+  const licenseError = document.getElementById('licenseError');
+  const passwordInput = document.getElementById('password');
+  const passwordError = docuemnt.getElementById('passwordError');
 
     if(!nameRegex.test(name.value)) 
     {
       nameInput.classList.add('error');
       nameInput.classList.remove('success');
-      nameError.textContent = "Niepoprawne imię!";
+      nameError.textContent = "Niepoprawny format imienia";
     }
     else 
     {
       nameInput.classList.remove('error'); 
       nameInput.classList.add('success'); 
       nameError.textContent = ""; 
+    }
+
+    if(!secondnameRegex.test(secondname.value)) 
+    {
+      secondnameInput.classList.add('error');
+      secondnameInput.classList.remove('success');
+      secondnameError.textContent = "Niepoprawny format imienia";
+    }
+    else 
+    {
+      secondnameInput.classList.remove('error'); 
+      secondnameInput.classList.add('success'); 
+      secondnameError.textContent = ""; 
+    }
+
+    if(!surnameRegex.test(surname.value)) 
+    {
+      surnameInput.classList.add('error');
+      surnameInput.classList.remove('success');
+      surnameError.textContent = "Niepoprawny format imienia";
+    }
+    else 
+    {
+      surnameInput.classList.remove('error'); 
+      surnameInput.classList.add('success'); 
+      surnameError.textContent = ""; 
+    }
+
+   if(dateInput != null) 
+    {
+      dateInput.classList.add('error');
+      dateInput.classList.remove('success');
+      dateError.textContent = "Niepoprawny format imienia";
+    }
+    else 
+    {
+      dateInput.classList.remove('error'); 
+      dateInput.classList.add('success'); 
+      dateError.textContent = ""; 
+    }
+
+   if(sexInput != null) 
+    {
+      sexInput.classList.add('error');
+      sexInput.classList.remove('success');
+      sexError.textContent = "Niepoprawny format imienia";
+    }
+    else 
+    {
+      sexInput.classList.remove('error'); 
+      sexInput.classList.add('success'); 
+      sexError.textContent = ""; 
+    }
+
+   if(!countryRegex.test(country.value)) 
+    {
+      countryInput.classList.add('error');
+      countryInput.classList.remove('success');
+      countryError.textContent = "Niepoprawny format imienia";
+    }
+    else 
+    {
+      countryInput.classList.remove('error'); 
+      countryInput.classList.add('success'); 
+      countryError.textContent = ""; 
+    }
+
+    if(!cityRegex.test(city.value)) 
+    {
+      cityInput.classList.add('error');
+      cityInput.classList.remove('success');
+      cityError.textContent = "Niepoprawny format imienia";
+    }
+    else 
+    {
+      cityInput.classList.remove('error'); 
+      cityInput.classList.add('success'); 
+      cityError.textContent = ""; 
+    }
+
+    if(!streetRegex.test(street.value)) 
+    {
+      streetInput.classList.add('error');
+      streetInput.classList.remove('success');
+      streetError.textContent = "Niepoprawny format imienia";
+    }
+    else 
+    {
+      streetInput.classList.remove('error'); 
+      streetInput.classList.add('success'); 
+      streetError.textContent = ""; 
+    }
+
+   if(!phoneRegex.test(phone.value)) 
+    {
+      phoneInput.classList.add('error');
+      phoneInput.classList.remove('success');
+      phoneError.textContent = "Niepoprawny format imienia";
+    }
+    else 
+    {
+      phoneInput.classList.remove('error'); 
+      phoneInput.classList.add('success'); 
+      phoneError.textContent = ""; 
+    }
+
+   if(license != null) 
+    {
+      licenseInput.classList.add('error');
+      licenseInput.classList.remove('success');
+      licenseError.textContent = "Niepoprawny format imienia";
+    }
+    else 
+    {
+      licenseInput.classList.remove('error'); 
+      licenseInput.classList.add('success'); 
+      licenseError.textContent = ""; 
+    }
+
+   if(!passwordRegex.test(password.value)) 
+    {
+      passwordInput.classList.add('error');
+      passwordInput.classList.remove('success');
+      passwordError.textContent = "Niepoprawny format imienia";
+    }
+    else 
+    {
+      passwordInput.classList.remove('error'); 
+      passwordInput.classList.add('success'); 
+      passwordError.textContent = ""; 
     }
  });
            
