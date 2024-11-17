@@ -82,7 +82,6 @@
   <button class="operation" onclick="SaveData()"> Zapisz dane </button>
   
  </form>
-</body>
 
 <script>
   const nameRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}$/;
@@ -112,12 +111,18 @@
 
     if(!nameRegex.test(name.value)) 
     {
-     nameInput.classList.add('error');
-     nameInput.classList.remove('success');
-     nameError.textContent = "Niepoprawne imię!";
+      nameInput.classList.add('error');
+      nameInput.classList.remove('success');
+      nameError.textContent = "Niepoprawne imię!";
     }
-
+    else 
+    {
+      nameInput.classList.remove('error'); 
+      nameInput.classList.add('success'); 
+      nameError.textContent = ""; 
+    }
  });
            
-</script>
+ </script>
+</body>
 </html>
