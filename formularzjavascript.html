@@ -99,17 +99,15 @@
   const cityRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}( [A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29})*$/;
   const streetRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29}( [A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,29})*\s\d*$/;
   const phoneRegex = /^\+?\d{9,15}$/;
-  const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/;
  
   const isValid = true;
 
   console.log("Test imienia:", nameRegex.test("Bartłomiej")); // Spodziewane: true
   console.log("Test nazwiska:", surnameRegex.test("Wykrota")); // Spodziewane: true
-  console.log("Test kraju:", nameRegex.test("Polska")); // Spodziewane: true
-  console.log("Test miasta:", streetRegex.test("Warszawa")); // Spodziewane: true
-  console.log("Test ulicy:", nameRegex.test("Wąwozowa 18")); // Spodziewane: true
-  console.log("Test numeru:", streetRegex.test("+48 698 390 802")); // Spodziewane: true
-  console.log("Test hasła:", nameRegex.test("WielkiB2005")); // Spodziewane: true
+  console.log("Test kraju:", countryRegex.test("Polska")); // Spodziewane: true
+  console.log("Test miasta:", cityRegex.test("Warszawa")); // Spodziewane: true
+  console.log("Test ulicy:", streetRegex.test("Wąwozowa 18")); // Spodziewane: true
+  console.log("Test numeru:", phoneRegex.test("+48 698 390 802")); // Spodziewane: true
 
   function SaveData() 
   {
