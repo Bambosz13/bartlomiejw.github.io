@@ -34,7 +34,7 @@
   <span id="surnameError" style="color: red; font-size: 0.9em;"></span>
   <br><br>
 
-  <label for="date"> Data urodzenia: </font></label><br>
+  <label for="date"> Data urodzenia: </font></label>
   <input type="date"; min="1900-01-01"; max="2024-12-31"; id="date"; placeholder="Data urodzenia"><br>
   <span id="dateError" style="color: red; font-size: 0.9em;"></span>
   <br><br>
@@ -148,7 +148,7 @@
       surnameError.textContent = ""; 
     }
 
-    if(dateInput != null) {
+    if(dateInput == null) {
       dateInput.classList.add('error');
       dateInput.classList.remove('success');
       dateError.textContent = "Brak wskazanej daty";
@@ -158,7 +158,7 @@
       dateError.textContent = ""; 
     }
 
-    if(sexInput != null) {
+    if(sexInput == null) {
       sexInput.classList.add('error');
       sexInput.classList.remove('success');
       sexError.textContent = "Brak wskazanej płci";
@@ -208,7 +208,7 @@
       phoneError.textContent = ""; 
     }
 
-    if(licenseInput != null) {
+    if(licenseInput == null) {
       licenseInput.classList.add('error');
       licenseInput.classList.remove('success');
       licenseError.textContent = "Brak wskazanego wyboru";
