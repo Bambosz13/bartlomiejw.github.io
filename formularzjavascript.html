@@ -41,7 +41,6 @@
   
   <label for="sex"> Płeć: </label>
     <select id="sex"; placeholder="Płeć" required>
-        <option value="none"></option>
         <option value="yes"> Mężczyzna </option>
         <option value="no"> Kobieta </option>
     </select><br>
@@ -66,7 +65,6 @@
 
   <label for="drivinglicence"> Prawo jazdy: </label>
     <select id="license"; name="Prawo jazdy" required>
-        <option value="none"></option>
         <option value="yes"> Tak </option>
         <option value="no"> Nie </option>
     </select><br>
@@ -148,26 +146,6 @@
       surnameError.textContent = ""; 
     }
 
-    if(dateInput !== '') {
-      dateInput.classList.add('error');
-      dateInput.classList.remove('success');
-      dateError.textContent = "Brak wskazanej daty";
-    } else {
-      dateInput.classList.remove('error'); 
-      dateInput.classList.add('success'); 
-      dateError.textContent = ""; 
-    }
-
-    if(sexInput !== '') {
-      sexInput.classList.add('error');
-      sexInput.classList.remove('success');
-      sexError.textContent = "Brak wskazanej płci";
-    } else {
-      sexInput.classList.remove('error'); 
-      sexInput.classList.add('success'); 
-      sexError.textContent = ""; 
-    }
-
     if(!countryRegex.test(countryInput.value)) {
       countryInput.classList.add('error');
       countryInput.classList.remove('success');
@@ -206,16 +184,6 @@
       phoneInput.classList.remove('error'); 
       phoneInput.classList.add('success'); 
       phoneError.textContent = ""; 
-    }
-
-    if(licenseInput !== '') {
-      licenseInput.classList.add('error');
-      licenseInput.classList.remove('success');
-      licenseError.textContent = "Brak wskazanego wyboru";
-    } else {
-      licenseInput.classList.remove('error'); 
-      licenseInput.classList.add('success'); 
-      licenseError.textContent = ""; 
     }
 
     if(!passwordRegex.test(passwordInput.value)) {
