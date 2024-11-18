@@ -22,7 +22,7 @@
  <form align="center" id="form">
   <h1 align="center"> Formularz </h1>
   
-  <input type="text"; id="name"; placeholder="Imię "><br>
+  <input type="text"; id="name"; placeholder="Imię " required><br>
   <span id="nameError" style="color: red; font-size: 0.9em;"></span>
   <br><br>
 
@@ -30,17 +30,17 @@
   <span id="secondnameError" style="color: red; font-size: 0.9em;"></span>
   <br><br>
 
-  <input type="text"; id="surname"; placeholder="Nazwisko"><br>
+  <input type="text"; id="surname"; placeholder="Nazwisko" required><br>
   <span id="surnameError" style="color: red; font-size: 0.9em;"></span>
   <br><br>
 
   <label for="date"> Data urodzenia: </font></label>
-  <input type="date"; min="1900-01-01"; max="2024-11-18"; id="date"; placeholder="Data urodzenia"><br>
+  <input type="date"; min="1900-01-01"; max="2024-11-18"; id="date"; placeholder="Data urodzenia" required><br>
   <span id="dateError" style="color: red; font-size: 0.9em;"></span>
   <br><br>
   
   <label for="sex"> Płeć: </label>
-    <select id="sex"; placeholder="Płeć">
+    <select id="sex"; placeholder="Płeć" required>
         <option value="none"> - </option>
         <option value="yes"> Mężczyzna </option>
         <option value="no"> Kobieta </option>
@@ -48,24 +48,24 @@
   <span id="sexError" style="color: red; font-size: 0.9em;"></span>
   <br><br>
 
-  <input type="text"; id="country"; placeholder="Kraj"><br>
+  <input type="text"; id="country"; placeholder="Kraj" required><br>
   <span id="countryError" style="color: red; font-size: 0.9em;"></span>
   <br><br>
 
-  <input type="text"; id="city"; placeholder="Miasto"><br>
+  <input type="text"; id="city"; placeholder="Miasto" required><br>
   <span id="cityError" style="color: red; font-size: 0.9em;"></span>
   <br><br>
   
-  <input type="text"; id="street"; placeholder="Ulica"><br>
+  <input type="text"; id="street"; placeholder="Ulica" required><br>
   <span id="streetError" style="color: red; font-size: 0.9em;"></span>
   <br><br>
 
-  <input type="text"; id="phone"; placeholder="Telefon"><br>
+  <input type="text"; id="phone"; placeholder="Telefon" required><br>
   <span id="phoneError" style="color: red; font-size: 0.9em;"></span>
   <br><br>
 
   <label for="drivinglicence"> Prawo jazdy: </label>
-    <select id="license"; name="Prawo jazdy">
+    <select id="license"; name="Prawo jazdy" required>
         <option value="none"> - </option>
         <option value="yes"> Tak </option>
         <option value="no"> Nie </option>
@@ -73,7 +73,7 @@
   <span id="licenseError" style="color: red; font-size: 0.9em;"></span>
   <br><br>
 
-  <input type="text"; id="password"; placeholder="Hasło"><br>
+  <input type="text"; id="password"; placeholder="Hasło" required><br>
   <span id="passwordError" style="color: red; font-size: 0.9em;"></span>
   <br><br>
 
