@@ -131,7 +131,7 @@
   
   function memoryRecall(){
   if(lastFunctionMR === true) memory = null;
-  calculation = eval(memory).toString();
+  calculation += eval(memory).toString();
   lastFunctionMR = true;
   updateDisplay();
   }
